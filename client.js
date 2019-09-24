@@ -3,12 +3,12 @@ const net = require('net');
 const client = new net.Socket();
 
 client.connect(3000, '127.0.0.1',()=>{
-    console.log('Hola 2');
+    //console.log('Hola ');
 });
 
 client.on('data',(data)=>{
     //console.log('Info: '+data);
-    console.log(`Info: ${data}`);
+    console.log(`Recibido: ${data}`);
     
     //client.destroy();
 })
@@ -26,7 +26,10 @@ const rl = readline.createInterface({
 
 rl.on('line', (input) => {
     client.write(input);
+    console.log(`Mensaje: ${input}`);
 });
 
 rl.prompt();
+
+
 
